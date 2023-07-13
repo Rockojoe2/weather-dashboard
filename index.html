@@ -35,7 +35,7 @@
     <!--Search Text-->
     <div class="mb-3 col-12 col-md-6 col-lg-3">
         <label for="exampleFormControlInput1" class="form-label">Search City</label>
-        <input type="email" class="form-control" id="search-city" placeholder="Austin">
+        <input class="form-control" id="search-city" placeholder="Austin">
         <button id="search-button">Search</button>
         <br>
         <br>
@@ -44,7 +44,9 @@
       <!--City, Date, Temp, Wind, Humidity goes here-->
       <div class="col-12 col-md-8 col-lg-9">
         <h1>City (MM/DD/YYYY).</h1>
-        <p>Temp: Wind: Humidity:</p>
+        <p id = current-temp>Temp: </p>
+        <p id = current-wind>Wind: </p>
+        <p id = current-humidity>Humidity: </p>
       </div>
       
     </section>
@@ -54,7 +56,7 @@
 
         <!--Search History-->
         <ul class="mb-3 col-12 col-md-6 col-lg-2" id = "list">
-            <button><li id="user-search">Atlanta</li></button>
+            <!-- <button><li id="user-search">Atlanta</li></button> -->
             <br>
         </ul>
 
@@ -74,7 +76,6 @@
                 Wind:
                 Humidity:
                 </p>
-                <button class="btn btn-block btn-info">Learn more.</button>
               </div>
             </div>
           </div>
@@ -93,7 +94,6 @@
                 Wind:
                 Humidity:
                 </p>
-                <button class="btn btn-block btn-info">Learn more.</button>
               </div>
             </div>
           </div>
@@ -112,7 +112,6 @@
                 Wind:
                 Humidity:
                 </p>
-                <button class="btn btn-block btn-info">Learn more.</button>
               </div>
             </div>
           </div>
@@ -131,7 +130,6 @@
                 Wind:
                 Humidity:
                 </p>
-                <button class="btn btn-block btn-info">Learn more.</button>
               </div>
             </div>
           </div>
@@ -150,7 +148,6 @@
                   Wind:
                   Humidity:
                 </p>
-                <button class="btn btn-block btn-info">Learn more.</button>
               </div>
             </div>
           </div>

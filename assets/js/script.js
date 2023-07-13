@@ -2,6 +2,9 @@ var apiKey = "99ae5f456c92f7cf24d805292935704d";
 var searchButton = document.getElementById("search-button");
 var userSearch = document.getElementById("user-search");
 var listHistory = document.getElementById("list");
+var currentTemp = document.getElementById("current-temp");
+var currentWind = document.getElementById("current-wind");
+var currentHumidity = document.getElementById("current-humidity");
 
 
 
@@ -53,21 +56,45 @@ function cityHistory() {
         console.log("This is the fetch response");
         var lat = (data.city.coord.lat);
         var lon = (data.city.coord.lon);
+        // var temperature = (data.list.main.temp);
         console.log(lat,lon);
         console.log("This is the Lat: " + lat);
         console.log("This is the lon: " + lon);
+        // console.log("This is the temperature: " + temperature);
+        getCoordinates(lon, lat);
         
     })
   }
 
+
   function getCoordinates(lon, lat)
   {
-    
+    var cityAPI = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat +"&lon=" + lon + "&appid=99ae5f456c92f7cf24d805292935704d";
+
+    fetch(cityAPI)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data){
+
+        var temperature = (data.list[0].main.temp);
+        var wind = (data.list[0].wind.speed);
+        var humidity = (data.list[0].main.humidity);
+
+        currentTemp.innerText = "Temp: " + temperature;
+        currentWind.innerText = "Wind: " + wind;
+        currentHumidity.innerText = "Humidity: " + humidity;
+       
+
+        // console.log("This is the temperature: " + temperature);
+        // console.log("This is the wind speed: " + wind);
+        // console.log("This is the humidity: " + humidity);
+
+
+    })
   }
 
-
-
-
+ 
 
 cityHistory();
 
