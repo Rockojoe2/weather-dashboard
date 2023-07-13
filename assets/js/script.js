@@ -14,6 +14,8 @@ function searchCity() {
     var userInput = document.getElementById("search-city").value;
     allUserSearch.push(userInput);
     localStorage.setItem("Search-History", JSON.stringify(allUserSearch));
+
+    getCity();
     // console.log(allUserSearch);
 }
 
@@ -35,11 +37,36 @@ function cityHistory() {
     }
   }
 
-//   function getCity()
-//   {
-//     var userInput = document.getElementById("search-city").value;
-//     var cityAPI = "api.openweathermap.org/data/2.5/forecast?q=" + userInput +{&appid={API key}";
-//   }
+//This function gets the latitude and longitude
+
+  function getCity()
+  {
+    var userInput = document.getElementById("search-city").value;
+    var cityAPI = "https://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&appid=99ae5f456c92f7cf24d805292935704d";
+
+
+    fetch(cityAPI)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data){
+        console.log("This is the fetch response");
+        var lat = (data.city.coord.lat);
+        var lon = (data.city.coord.lon);
+        console.log(lat,lon);
+        console.log("This is the Lat: " + lat);
+        console.log("This is the lon: " + lon);
+        
+    })
+  }
+
+  function getCoordinates(lon, lat)
+  {
+    
+  }
+
+
+
 
 
 cityHistory();
