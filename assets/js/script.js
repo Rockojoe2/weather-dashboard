@@ -59,7 +59,7 @@ function searchCity() {
     localStorage.setItem("Search-History", JSON.stringify(allUserSearch));
 
     getCity();
-    // getFutureDays();
+    getFutureDays();
     // console.log(allUserSearch);
 }
 
@@ -105,6 +105,7 @@ listHistory.addEventListener("click", function(event) {
     .then(function (data){
 
         var date = (data.list[10].dt_txt);
+        var description = (data.list[10].weather[0].main);
         var temperature = (data.list[10].main.temp);
         var wind = (data.list[10].wind.speed);
         var humidity = (data.list[10].main.humidity);
@@ -117,6 +118,15 @@ listHistory.addEventListener("click", function(event) {
        cardOneWind.innerText = "Wind: " + wind;
        cardOneHumidity.innerText = "Humidity: " + humidity;
 
+       if(description == "Clouds")
+       {
+         cardOneDescription.innerText = "☁️ Clouds";
+       }
+       else if(description == "Clear")
+       {
+         cardOneDescription.innerText = "🌥️ Clear";
+       }
+
     })
 
     //Day 2
@@ -127,6 +137,7 @@ listHistory.addEventListener("click", function(event) {
     .then(function (data){
 
         var date = (data.list[18].dt_txt);
+        var description = (data.list[18].weather[0].main);
         var temperature = (data.list[18].main.temp);
         var wind = (data.list[18].wind.speed);
         var humidity = (data.list[18].main.humidity);
@@ -138,6 +149,16 @@ listHistory.addEventListener("click", function(event) {
        cardTwoWind.innerText = "Wind: " + wind;
        cardTwoHumidity.innerText = "Humidity: " + humidity;
 
+       
+       if(description == "Clouds")
+       {
+         cardTwoDescription.innerText = "☁️ Clouds";
+       }
+       else if(description == "Clear")
+       {
+         cardTwoDescription.innerText = "🌥️ Clear";
+       }
+
     })
 
     //Day 3
@@ -148,6 +169,7 @@ listHistory.addEventListener("click", function(event) {
     .then(function (data){
 
         var date = (data.list[26].dt_txt);
+        var description = (data.list[26].weather[0].main);
         var temperature = (data.list[26].main.temp);
         var wind = (data.list[26].wind.speed);
         var humidity = (data.list[26].main.humidity);
@@ -159,6 +181,15 @@ listHistory.addEventListener("click", function(event) {
        cardThreeWind.innerText = "Wind: " + wind;
        cardThreeHumidity.innerText = "Humidity: " + humidity;
 
+       if(description == "Clouds")
+       {
+         cardThreeDescription.innerText = "☁️ Clouds";
+       }
+       else if(description == "Clear")
+       {
+         cardThreeDescription.innerText = "🌥️ Clear";
+       }
+
     })
 
         //Day 4
@@ -169,6 +200,7 @@ listHistory.addEventListener("click", function(event) {
         .then(function (data){
     
             var date = (data.list[34].dt_txt);
+            var description = (data.list[34].weather[0].main);
             var temperature = (data.list[34].main.temp);
             var wind = (data.list[34].wind.speed);
             var humidity = (data.list[34].main.humidity);
@@ -179,28 +211,48 @@ listHistory.addEventListener("click", function(event) {
            cardFourTemp.innerText = "Temperature: " + temperature;
            cardFourWind.innerText = "Wind: " + wind;
            cardFourHumidity.innerText = "Humidity: " + humidity;
+
+           if(description == "Clouds")
+           {
+             cardFourDescription.innerText = "☁️ Clouds";
+           }
+           else if(description == "Clear")
+           {
+             cardFourDescription.innerText = "🌥️ Clear";
+           }
+    
     
         })
 
-                //Day 5
-                fetch(cityAPI)
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (data){
-            
-                    var date = (data.list[34].dt_txt);
-                    var temperature = (data.list[34].main.temp);
-                    var wind = (data.list[34].wind.speed);
-                    var humidity = (data.list[34].main.humidity);
-            
-                   
-                   
-                   cardFiveDate.innerText = "Date: " + date;
-                   cardFiveTemp.innerText = "Temperature: " + temperature;
-                   cardFiveWind.innerText = "Wind: " + wind;
-                   cardFiveHumidity.innerText = "Humidity: " + humidity;
-            
+          //Day 5
+          fetch(cityAPI)
+          .then(function (response) {
+              return response.json();
+          })
+          .then(function (data){
+      
+              var date = (data.list[36].dt_txt);
+              var description = (data.list[36].weather[0].main);
+              var temperature = (data.list[36].main.temp);
+              var wind = (data.list[36].wind.speed);
+              var humidity = (data.list[36].main.humidity);
+      
+              
+              
+              cardFiveDate.innerText = "Date: " + date;
+              cardFiveTemp.innerText = "Temperature: " + temperature;
+              cardFiveWind.innerText = "Wind: " + wind;
+              cardFiveHumidity.innerText = "Humidity: " + humidity;
+
+              if(description == "Clouds")
+              {
+                cardFiveDescription.innerText = "☁️ Clouds";
+              }
+              else if(description == "Clear")
+              {
+                cardFiveDescription.innerText = "🌥️ Clear";
+              }
+              
                 })
 
 })
@@ -276,12 +328,12 @@ function cityHistory() {
 
         if(description == "Clouds")
         {
-          currentDescription.innerText = "☁️";
+          currentDescription.innerText = "☁️ Clouds";
         }
-        // else if(description == "Clear")
-        // {
-        //   currentDescription.innerText = "🌥️";
-        // }
+        else if(description == "Clear")
+        {
+          currentDescription.innerText = "🌥️ Clear";
+        }
        
 
         //console.log("This is the temperature: " + temperature);
@@ -305,6 +357,7 @@ function cityHistory() {
     .then(function (data){
 
         var date = (data.list[10].dt_txt);
+        var description = (data.list[10].weather[0].main);
         var temperature = (data.list[10].main.temp);
         var wind = (data.list[10].wind.speed);
         var humidity = (data.list[10].main.humidity);
@@ -317,6 +370,15 @@ function cityHistory() {
        cardOneWind.innerText = "Wind: " + wind;
        cardOneHumidity.innerText = "Humidity: " + humidity;
 
+       if(description == "Clouds")
+       {
+         cardOneDescription.innerText = "☁️ Clouds";
+       }
+       else if(description == "Clear")
+       {
+         cardOneDescription.innerText = "🌥️ Clear";
+       }
+
     })
 
     //Day 2
@@ -327,6 +389,7 @@ function cityHistory() {
     .then(function (data){
 
         var date = (data.list[18].dt_txt);
+        var description = (data.list[18].weather[0].main);
         var temperature = (data.list[18].main.temp);
         var wind = (data.list[18].wind.speed);
         var humidity = (data.list[18].main.humidity);
@@ -338,6 +401,16 @@ function cityHistory() {
        cardTwoWind.innerText = "Wind: " + wind;
        cardTwoHumidity.innerText = "Humidity: " + humidity;
 
+       
+       if(description == "Clouds")
+       {
+         cardTwoDescription.innerText = "☁️ Clouds";
+       }
+       else if(description == "Clear")
+       {
+         cardTwoDescription.innerText = "🌥️ Clear";
+       }
+
     })
 
     //Day 3
@@ -348,6 +421,7 @@ function cityHistory() {
     .then(function (data){
 
         var date = (data.list[26].dt_txt);
+        var description = (data.list[26].weather[0].main);
         var temperature = (data.list[26].main.temp);
         var wind = (data.list[26].wind.speed);
         var humidity = (data.list[26].main.humidity);
@@ -359,6 +433,15 @@ function cityHistory() {
        cardThreeWind.innerText = "Wind: " + wind;
        cardThreeHumidity.innerText = "Humidity: " + humidity;
 
+       if(description == "Clouds")
+       {
+         cardThreeDescription.innerText = "☁️ Clouds";
+       }
+       else if(description == "Clear")
+       {
+         cardThreeDescription.innerText = "🌥️ Clear";
+       }
+
     })
 
         //Day 4
@@ -369,6 +452,7 @@ function cityHistory() {
         .then(function (data){
     
             var date = (data.list[34].dt_txt);
+            var description = (data.list[34].weather[0].main);
             var temperature = (data.list[34].main.temp);
             var wind = (data.list[34].wind.speed);
             var humidity = (data.list[34].main.humidity);
@@ -379,28 +463,48 @@ function cityHistory() {
            cardFourTemp.innerText = "Temperature: " + temperature;
            cardFourWind.innerText = "Wind: " + wind;
            cardFourHumidity.innerText = "Humidity: " + humidity;
+
+           if(description == "Clouds")
+           {
+             cardFourDescription.innerText = "☁️ Clouds";
+           }
+           else if(description == "Clear")
+           {
+             cardFourDescription.innerText = "🌥️ Clear";
+           }
+    
     
         })
 
-                //Day 5
-                fetch(cityAPI)
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (data){
-            
-                    var date = (data.list[34].dt_txt);
-                    var temperature = (data.list[34].main.temp);
-                    var wind = (data.list[34].wind.speed);
-                    var humidity = (data.list[34].main.humidity);
-            
-                   
-                   
-                   cardFiveDate.innerText = "Date: " + date;
-                   cardFiveTemp.innerText = "Temperature: " + temperature;
-                   cardFiveWind.innerText = "Wind: " + wind;
-                   cardFiveHumidity.innerText = "Humidity: " + humidity;
-            
+          //Day 5
+          fetch(cityAPI)
+          .then(function (response) {
+              return response.json();
+          })
+          .then(function (data){
+      
+              var date = (data.list[36].dt_txt);
+              var description = (data.list[36].weather[0].main);
+              var temperature = (data.list[36].main.temp);
+              var wind = (data.list[36].wind.speed);
+              var humidity = (data.list[36].main.humidity);
+      
+              
+              
+              cardFiveDate.innerText = "Date: " + date;
+              cardFiveTemp.innerText = "Temperature: " + temperature;
+              cardFiveWind.innerText = "Wind: " + wind;
+              cardFiveHumidity.innerText = "Humidity: " + humidity;
+
+              if(description == "Clouds")
+              {
+                cardFiveDescription.innerText = "☁️ Clouds";
+              }
+              else if(description == "Clear")
+              {
+                cardFiveDescription.innerText = "🌥️ Clear";
+              }
+              
                 })
 
 
