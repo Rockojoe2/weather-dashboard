@@ -126,6 +126,10 @@ listHistory.addEventListener("click", function(event) {
        {
          cardOneDescription.innerText = "🌥️ Clear";
        }
+       else if(description == "Rain")
+       {
+         cardOneDescription.innerText = "🌧️ Rain";
+       }
 
     })
 
@@ -158,6 +162,10 @@ listHistory.addEventListener("click", function(event) {
        {
          cardTwoDescription.innerText = "🌥️ Clear";
        }
+       else if(description == "Rain")
+       {
+         cardTwoDescription.innerText = "🌧️ Rain";
+       }
 
     })
 
@@ -188,6 +196,10 @@ listHistory.addEventListener("click", function(event) {
        else if(description == "Clear")
        {
          cardThreeDescription.innerText = "🌥️ Clear";
+       }
+       else if(description == "Rain")
+       {
+         cardThreeDescription.innerText = "🌧️ Rain";
        }
 
     })
@@ -220,6 +232,10 @@ listHistory.addEventListener("click", function(event) {
            {
              cardFourDescription.innerText = "🌥️ Clear";
            }
+           else if(description == "Rain")
+            {
+              cardFourDescription.innerText = "🌧️ Rain";
+            }
     
     
         })
@@ -251,6 +267,11 @@ listHistory.addEventListener("click", function(event) {
               else if(description == "Clear")
               {
                 cardFiveDescription.innerText = "🌥️ Clear";
+              }
+
+              else if(description == "Rain")
+              {
+                cardFiveDescription.innerText = "🌧️ Rain";
               }
               
                 })
@@ -378,6 +399,10 @@ function cityHistory() {
        {
          cardOneDescription.innerText = "🌥️ Clear";
        }
+       else if(description == "Rain")
+       {
+         cardOneDescription.innerText = "🌧️ Rain";
+       }
 
     })
 
@@ -410,6 +435,10 @@ function cityHistory() {
        {
          cardTwoDescription.innerText = "🌥️ Clear";
        }
+       else if(description == "Rain")
+       {
+         cardTwoDescription.innerText = "🌧️ Rain";
+       }
 
     })
 
@@ -440,6 +469,10 @@ function cityHistory() {
        else if(description == "Clear")
        {
          cardThreeDescription.innerText = "🌥️ Clear";
+       }
+       else if(description == "Rain")
+       {
+         cardThreeDescription.innerText = "🌧️ Rain";
        }
 
     })
@@ -472,6 +505,10 @@ function cityHistory() {
            {
              cardFourDescription.innerText = "🌥️ Clear";
            }
+           else if(description == "Rain")
+            {
+              cardFourDescription.innerText = "🌧️ Rain";
+            }
     
     
         })
@@ -503,6 +540,11 @@ function cityHistory() {
               else if(description == "Clear")
               {
                 cardFiveDescription.innerText = "🌥️ Clear";
+              }
+
+              else if(description == "Rain")
+              {
+                cardFiveDescription.innerText = "🌧️ Rain";
               }
               
                 })
