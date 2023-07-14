@@ -59,7 +59,7 @@ function searchCity() {
     localStorage.setItem("Search-History", JSON.stringify(allUserSearch));
 
     getCity();
-    getFutureDays();
+    // getFutureDays();
     // console.log(allUserSearch);
 }
 
@@ -92,10 +92,116 @@ listHistory.addEventListener("click", function(event) {
         console.log("This is the lon: " + lon);
         // console.log("This is the temperature: " + temperature);
         getCoordinates(lon, lat);
-        getFutureDays(lat, lon);
+      
         
         
     })
+
+    //Day 1
+    fetch(cityAPI)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data){
+
+        var date = (data.list[10].dt_txt);
+        var temperature = (data.list[10].main.temp);
+        var wind = (data.list[10].wind.speed);
+        var humidity = (data.list[10].main.humidity);
+
+
+       
+       
+       cardOneDate.innerText = "Date: " + date;
+       cardOneTemp.innerText = "Temperature: " + temperature;
+       cardOneWind.innerText = "Wind: " + wind;
+       cardOneHumidity.innerText = "Humidity: " + humidity;
+
+    })
+
+    //Day 2
+    fetch(cityAPI)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data){
+
+        var date = (data.list[18].dt_txt);
+        var temperature = (data.list[18].main.temp);
+        var wind = (data.list[18].wind.speed);
+        var humidity = (data.list[18].main.humidity);
+
+       
+       
+       cardTwoDate.innerText = "Date: " + date;
+       cardTwoTemp.innerText = "Temperature: " + temperature;
+       cardTwoWind.innerText = "Wind: " + wind;
+       cardTwoHumidity.innerText = "Humidity: " + humidity;
+
+    })
+
+    //Day 3
+    fetch(cityAPI)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data){
+
+        var date = (data.list[26].dt_txt);
+        var temperature = (data.list[26].main.temp);
+        var wind = (data.list[26].wind.speed);
+        var humidity = (data.list[26].main.humidity);
+
+       
+       
+       cardThreeDate.innerText = "Date: " + date;
+       cardThreeTemp.innerText = "Temperature: " + temperature;
+       cardThreeWind.innerText = "Wind: " + wind;
+       cardThreeHumidity.innerText = "Humidity: " + humidity;
+
+    })
+
+        //Day 4
+        fetch(cityAPI)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data){
+    
+            var date = (data.list[34].dt_txt);
+            var temperature = (data.list[34].main.temp);
+            var wind = (data.list[34].wind.speed);
+            var humidity = (data.list[34].main.humidity);
+    
+           
+           
+           cardFourDate.innerText = "Date: " + date;
+           cardFourTemp.innerText = "Temperature: " + temperature;
+           cardFourWind.innerText = "Wind: " + wind;
+           cardFourHumidity.innerText = "Humidity: " + humidity;
+    
+        })
+
+                //Day 5
+                fetch(cityAPI)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data){
+            
+                    var date = (data.list[34].dt_txt);
+                    var temperature = (data.list[34].main.temp);
+                    var wind = (data.list[34].wind.speed);
+                    var humidity = (data.list[34].main.humidity);
+            
+                   
+                   
+                   cardFiveDate.innerText = "Date: " + date;
+                   cardFiveTemp.innerText = "Temperature: " + temperature;
+                   cardFiveWind.innerText = "Wind: " + wind;
+                   cardFiveHumidity.innerText = "Humidity: " + humidity;
+            
+                })
 
 })
 
@@ -172,6 +278,10 @@ function cityHistory() {
         {
           currentDescription.innerText = "☁️";
         }
+        // else if(description == "Clear")
+        // {
+        //   currentDescription.innerText = "🌥️";
+        // }
        
 
         //console.log("This is the temperature: " + temperature);
@@ -182,7 +292,7 @@ function cityHistory() {
     })
   }
 
-  function getFutureDays(lat, lon)
+  function getFutureDays(lon, lat)
   {
     var userInput = document.getElementById("search-city").value;
     var cityAPI = "https://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&appid=99ae5f456c92f7cf24d805292935704d";
@@ -296,10 +406,8 @@ function cityHistory() {
 
 
 
-
-
   }
 
 cityHistory();
-// savedCity();
+
 
