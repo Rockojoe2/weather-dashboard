@@ -3,6 +3,8 @@ var searchButton = document.getElementById("search-button");
 var userSearch = document.getElementById("user-search");
 var listHistory = document.getElementById("list");
 
+//Below are all the variables I used to update the sections in my index.html
+
 //Current Variables
 var currentDate = document.getElementById("current-date");
 var currentDescription = document.getElementById("current-description");
@@ -103,6 +105,8 @@ listHistory.addEventListener("click", function(event) {
         return response.json();
     })
     .then(function (data){
+
+      //Data that we get from the Openweather API. Repeat same process for all days. Data will appear when we click the button in our history.
 
         var date = (data.list[10].dt_txt);
         var description = (data.list[10].weather[0].main);
@@ -292,13 +296,13 @@ function cityHistory() {
         var cityPlacement = storedCities[i];
         var li = document.createElement("button");
         li.textContent = cityPlacement;
-        li.setAttribute("id", i); //Changed this to id
+        li.setAttribute("id", i); //Changed this to id because we're going to need to get the id's in another function
         listHistory.appendChild(li);
       }
     }
   }
 
-//This function gets the latitude and longitude
+//This function gets the latitude and longitude, and fires off the getCoordinates function based off the lattitude and longitude
 
   function getCity()
   {
@@ -334,6 +338,9 @@ function cityHistory() {
     })
     .then(function (data){
 
+
+      //Displays data of current day
+
         var date = (data.list[0].dt_txt);
         var temperature = (data.list[0].main.temp);
         var wind = (data.list[0].wind.speed);
@@ -365,6 +372,7 @@ function cityHistory() {
     })
   }
 
+  //This is similar to the listHistory function, but this works on search rather than the button history.
   function getFutureDays(lon, lat)
   {
     var userInput = document.getElementById("search-city").value;
@@ -548,8 +556,6 @@ function cityHistory() {
               }
               
                 })
-
-
 
 
   }
